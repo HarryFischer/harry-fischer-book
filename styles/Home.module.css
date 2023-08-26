@@ -1,0 +1,180 @@
+.container {
+  padding: 0 10vw;
+}
+
+/* Animation of H */
+@keyframes fadeOutFromFull {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+
+  99% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+.bigh {
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  position: fixed;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  /* animation: fadeOutFromFull 1.5s ease-in; */
+  animation-fill-mode: forwards;
+  animation-delay: 1.5s;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.bigh:hover {
+      cursor: zoom-in;
+}
+
+.top, .bottom {
+  background-color: white;
+  position: absolute;
+  left: calc(50% - 8px);
+  right: calc(50% - 8px);
+  animation-delay: 0.5s;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideTopIn {
+  0% {
+    bottom: 100%;
+  }
+
+  1% {
+    bottom: 100%;
+  }
+
+  100% {
+    bottom: calc(50% + 40px);
+  }
+}
+
+.top {
+  top: 0;
+  /* bottom: calc(50% + 40px); */
+  animation-name: slideTopIn;
+}
+
+@keyframes slideBottomIn {
+  0% {
+    top: 100%;
+  }
+
+  1% {
+    top: 100%;
+  }
+
+  100% {
+    top: calc(50% + 40px);
+  }
+}
+.bottom {
+  /* top: calc(50% + 40px); */
+  bottom: 0;
+  animation-name: slideBottomIn;
+}
+
+
+/* image grid */
+
+main.panner {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  animation: fadeInFromNone 1.5s ease-in-out;
+  animation-delay: 3.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}  
+
+.panner-inner .item {
+  background-color: pink!important;
+}
+
+.panner button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100000;
+  font-size: 20px;
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+
+div.inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 600px);
+  grid-gap: 48px;
+}
+div.inner div {
+  position: relative;
+}
+
+div.inner div details {
+  position: absolute;
+  left: 30px;
+  z-index: 12;
+  width: 100%;
+}
+
+div.inner div summary {
+  position: absolute;
+  left: 30px;
+  z-index: 12;
+}
+
+div.inner h2 {
+  opacity: 0.2;
+}
+
+div.inner img {
+  transition: filter 0.3s ease;
+  filter: blur(5px);
+}
+div.inner div:hover h2 {
+  opacity: 1;
+}
+div.inner div:hover img {
+  filter: blur(0px);
+}
+
+
+
+@media (max-width: 600px) {}
+
+/* @media (prefers-color-scheme: dark) {} */
