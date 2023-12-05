@@ -3,10 +3,16 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { useEffect } from 'react';
 
-import image1 from '../public/images/1.jpg';
-import image2 from '../public/images/2.jpg';
-import image3 from '../public/images/3.jpg';
-import image4 from '../public/images/4.jpg';
+import image1 from '../public/images/alex-mourant.png';
+import image2 from '../public/images/brain-ops.png';
+import image3 from '../public/images/carbon-bombs.png';
+import image4 from '../public/images/eoy-2022.png';
+import image5 from '../public/images/greta.png';
+import image6 from '../public/images/mariupol.png';
+import image7 from '../public/images/cotton-capital-1.png';
+import image8 from '../public/images/cotton-capital-2.png';
+import image9 from '../public/images/food-from-4.png';
+import image10 from '../public/images/world-elephant-day.png';
 
 export default function Home() {
   useEffect(() => {
@@ -129,7 +135,7 @@ export default function Home() {
               </summary>
               Hello hello hello hello hello hello hello hello hello hello hello
             </details>
-            <Image alt='/' src={image1} />
+            <Image alt='/' src={image5} />
           </div>
           <div className={styles.item}>
             <details>
@@ -138,7 +144,7 @@ export default function Home() {
               </summary>
               Hello hello hello hello hello hello hello hello hello hello hello
             </details>
-            <Image alt='/' src={image2} />
+            <Image alt='/' src={image6} />
           </div>
           <div className={styles.item}>
             <details>
@@ -147,7 +153,7 @@ export default function Home() {
               </summary>
               Hello hello hello hello hello hello hello hello hello hello hello
             </details>
-            <Image alt='/' src={image3} />
+            <Image alt='/' src={image7} />
           </div>
           <div className={styles.item}>
             <details>
@@ -156,7 +162,7 @@ export default function Home() {
               </summary>
               Hello hello hello hello hello hello hello hello hello hello hello
             </details>
-            <Image alt='/' src={image4} />
+            <Image alt='/' src={image8} />
           </div>
           <div className={styles.item}>
             <details>
@@ -165,7 +171,7 @@ export default function Home() {
               </summary>
               Hello hello hello hello hello hello hello hello hello hello hello
             </details>
-            <Image alt='/' src={image1} />
+            <Image alt='/' src={image9} />
           </div>
           <div className={styles.item}>
             <details>
@@ -174,7 +180,7 @@ export default function Home() {
               </summary>
               Hello hello hello hello hello hello hello hello hello hello hello
             </details>
-            <Image alt='/' src={image2} />
+            <Image alt='/' src={image10} />
           </div>
           <div className={styles.item}>
             <details>

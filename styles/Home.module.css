@@ -38,7 +38,7 @@
 }
 
 .bigh:hover {
-      cursor: zoom-in;
+      cursor: hover;
 }
 
 .top, .bottom {
@@ -136,7 +136,7 @@ div.inner {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 48px;
+  padding: 100px;
   display: grid;
   grid-template-columns: repeat(4, 600px);
   grid-gap: 48px;
@@ -166,6 +166,12 @@ div.inner h2 {
 div.inner img {
   transition: filter 0.3s ease;
   filter: blur(5px);
+}
+div.inner div {
+  transition: cursor 3s ease;
+}
+div.inner div:hover {
+  cursor: url(/info.png), auto;
 }
 div.inner div:hover h2 {
   opacity: 1;
