@@ -24,3 +24,17 @@ a {
     background: white;
   }
 }
+
+.left,
+.right {
+  transition: all 0.3s ease;
+  &.active {
+    transform: translateX(-100vw);
+  }
+}
+
+.right {
+  background-color: white;
+  min-width: 100vw;
+  z-index: 12;
+}
