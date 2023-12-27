@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import image1 from "../public/images/alex-mourant.png";
 import image2 from "../public/images/brain-ops.png";
@@ -15,7 +15,11 @@ import image9 from "../public/images/food-from-4.png";
 import image10 from "../public/images/world-elephant-day.png";
 
 export default function Home() {
+  const [aboutButtonText, setAboutButtonText] = useState("About");
+  const [slideMeContainers, setSlideMeContainers] = useState([]);
   useEffect(() => {
+    console.log("triggered");
+    setSlideMeContainers(document.querySelectorAll(".slide-me"));
     const pannerCode = () => {
       const panTag = document.getElementById("panner-inner");
       let currentX = 0;
@@ -62,13 +66,10 @@ export default function Home() {
       const allImages = document.querySelectorAll("img");
       const lightBoxWrapper = document.getElementById("lightbox-wrapper");
       allImages.forEach((image) => {
-        console.log(image.src);
         image.addEventListener("click", () => {
           const lightBoxInner = document.querySelector(".lightbox-inner");
           const lightBoxInnerImage = lightBoxInner.querySelector("img");
           lightBoxInnerImage.src = image.src;
-          console.log(lightBoxInner);
-          console.log("working");
 
           const closeButton = lightBoxInner.querySelector(
             ".lightbox-inner__close"
@@ -79,23 +80,6 @@ export default function Home() {
             lightBoxWrapper.classList.remove("show");
             lightBoxWrapper.classList.remove(styles["show"]);
           });
-        });
-      });
-    };
-
-    const showAbout = () => {
-      const aboutButton = document.getElementById("about");
-      const slideMeContainers = document.querySelectorAll(".slide-me");
-      aboutButton.addEventListener("click", () => {
-        console.log("clicked");
-        slideMeContainers.forEach((container) => {
-          if (container.classList.contains("active")) {
-            container.classList.remove("active");
-            aboutButton.innerHTML = "About";
-          } else {
-            container.classList.add("active");
-            aboutButton.innerHTML = "Close";
-          }
         });
       });
     };
@@ -122,8 +106,19 @@ export default function Home() {
     pannerCode();
     showOverlay();
     lightBox();
-    showAbout();
   }, []);
+
+  const alternateAboutClass = () => {
+    slideMeContainers.forEach((container) => {
+      if (container.classList.contains("active")) {
+        container.classList.remove("active");
+        setAboutButtonText("About");
+      } else {
+        container.classList.add("active");
+        setAboutButtonText("Close");
+      }
+    });
+  };
 
   return (
     <div className={styles.container}>
@@ -136,8 +131,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <button className={styles.about} id="about">
-        About
+      <button
+        className={styles.about}
+        id="about"
+        onClick={() => {
+          alternateAboutClass();
+        }}
+      >
+        {aboutButtonText}
       </button>
       <div className="left slide-me">
         <section className={styles.bigh} id="click-me">
