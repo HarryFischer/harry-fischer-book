@@ -83,6 +83,23 @@ export default function Home() {
       });
     };
 
+    const showAbout = () => {
+      const aboutButton = document.getElementById("about");
+      const slideMeContainers = document.querySelectorAll(".slide-me");
+      aboutButton.addEventListener("click", () => {
+        console.log("clicked");
+        slideMeContainers.forEach((container) => {
+          if (container.classList.contains("active")) {
+            container.classList.remove("active");
+            aboutButton.innerHTML = "About";
+          } else {
+            container.classList.add("active");
+            aboutButton.innerHTML = "Close";
+          }
+        });
+      });
+    };
+
     const showOverlay = () => {
       const overlay = document.getElementById("overlay");
       overlay.addEventListener("click", () => {
@@ -105,6 +122,7 @@ export default function Home() {
     pannerCode();
     showOverlay();
     lightBox();
+    showAbout();
   }, []);
 
   return (
@@ -118,62 +136,72 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className={styles.bigh} id="click-me">
-        <div className={styles.top}></div>
-        <div className={styles.bottom}></div>
-      </section>
+      <button className={styles.about} id="about">
+        About
+      </button>
+      <div className="left slide-me">
+        <section className={styles.bigh} id="click-me">
+          <div className={styles.top}></div>
+          <div className={styles.bottom}></div>
+        </section>
 
-      <div className={styles.lightbox} id="lightbox-wrapper">
-        <div className="lightbox-inner">
-          <button className="lightbox-inner__close">Close</button>
-          <img src="" alt="" />
+        <div className={styles.lightbox} id="lightbox-wrapper">
+          <div className="lightbox-inner">
+            <button className="lightbox-inner__close">Close</button>
+            <img src="" alt="" />
+          </div>
         </div>
-      </div>
 
-      <main className={styles.panner} id="panner">
-        <button>Information</button>
-        <div className={styles.inner} id="panner-inner">
-          <div className={styles.item}>
-            <div className={styles.overlay} id="overlay">
-              <h3> Alexander Mourant portfolio</h3>
+        <main className={styles.panner} id="panner">
+          <div className={styles.inner} id="panner-inner">
+            <div className={styles.item}>
+              <div className={styles.overlay} id="overlay">
+                <h3> Alexander Mourant portfolio</h3>
+              </div>
+              <Image alt="/" src={image1} />
             </div>
-            <Image alt="/" src={image1} />
+            <div className={styles.item}>
+              <Image alt="/" src={image2} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image3} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image4} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image5} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image6} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image7} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image8} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image9} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image10} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image3} />
+            </div>
+            <div className={styles.item}>
+              <Image alt="/" src={image4} />
+            </div>
           </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image2} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image3} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image4} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image5} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image6} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image7} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image8} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image9} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image10} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image3} />
-          </div>
-          <div className={styles.item}>
-            <Image alt="/" src={image4} />
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
+      <div className="right slide-me">
+        <h1>
+          Harry Fischer is a designer and developer based in South East London
+          currently working at the Guardian.
+        </h1>
+      </div>
     </div>
   );
 }
