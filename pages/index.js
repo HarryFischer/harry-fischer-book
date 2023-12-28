@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import { useEffect, useState } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 import image1 from "../public/images/alex-mourant.png";
 import image2 from "../public/images/brain-ops.png";
@@ -205,6 +206,7 @@ export default function Home() {
         </h1>
       </div>
       <SpeedInsights />
+      <Analytics />
     </div>
   );
 }
